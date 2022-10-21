@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<HTML lang="en">
+    <HEAD>
+        <TITLE>HBNB</TITLE>
+    </HEAD>
+    <BODY>
+        <H1>States</H1>
+		<UL>
+		  {%- for k, v in states_list|dictsort(True) %}
+		  <LI>{{ v.id }}: <B>{{ v.name }}</B>
+			<UL>
+			  {%- for key, value in cities_list|dictsort(True) %}
+			  {%- if v.id == value.state_id %}
+			  <LI>{{ value.id }}: <B>{{ value.name }}</B></LI>
+			  {%- endif %}
+			  {%- endfor %}
+			</UL>
+			{%- endfor %}
+		  </LI>
+		</UL>
+    </BODY>
+</HTML>
